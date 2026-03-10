@@ -1,6 +1,6 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service
 import pandas as pd
 import time
 from datetime import datetime
@@ -11,9 +11,10 @@ options.add_argument("--headless")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 
+driver = webdriver.Chrome(options=options)
+
 url = "https://www.ebay.com/globaldeals/tech"
 
-driver = webdriver.Chrome()
 driver.get(url)
 
 time.sleep(5)
@@ -81,6 +82,7 @@ else:
     df.to_csv(file_name,index=False)
 
 driver.quit()
+
 
 
 
