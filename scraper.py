@@ -6,6 +6,10 @@ import time
 from datetime import datetime
 import os
 
+options = Options()
+options.add_argument("--headless")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
 
 url = "https://www.ebay.com/globaldeals/tech"
 
@@ -77,6 +81,7 @@ else:
     df.to_csv(file_name,index=False)
 
 driver.quit()
+
 
 
 
